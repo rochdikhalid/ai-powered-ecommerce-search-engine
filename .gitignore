@@ -1,0 +1,32 @@
+# General
+*.log
+*.tmp
+*.swp
+*.DS_Store
+*.env
+
+# Frontend (Next.js)
+node_modules/
+.cache/
+.next/
+out/
+public/static/
+yarn-error.log
+package-lock.json
+pnpm-lock.yaml
+
+# Backend (Python)
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+env.bak/
+instance/
+*.sqlite3
+
+# IDEs
+.vscode/
+.idea/
