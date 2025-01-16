@@ -1,12 +1,12 @@
 from fastapi import FastAPI 
-from fastapi.responses import JSONResponse
+from src.routes.cars import router
+from src.utils.database import engine
 
 
 app = FastAPI()
 
-@app.get("/healthcheck")
-async def healthcheck():
-    return JSONResponse(
-        content={"status": "healthy"},
-        status_code=200
-    )
+app.include_router(router)
+
+@app.lifespan("shutdown")
+def shutdown_event():
+    engine.dispose()
