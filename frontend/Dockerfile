@@ -1,4 +1,4 @@
-FROM node:22
+FROM node:18-alpine
 
 WORKDIR /app
 
@@ -11,4 +11,4 @@ COPY . .
 
 EXPOSE 3000
 
-CMD ["npm", "run", "dev"]  # Command to run the frontend
+CMD ["npm", "run", "dev"]

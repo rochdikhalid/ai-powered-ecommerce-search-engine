@@ -1,12 +1,16 @@
+# database.py
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from src.models.car import Base
 
-
-DATABASE_URL = "postgresql://user:password@db:5432/postgres"
+DATABASE_URL = "postgresql://user:password@db:5432/mydatabase"
 
 engine = create_engine(DATABASE_URL)
-Base.metadata.create_all(engine)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-Session = sessionmaker(bind=engine)
-session = Session()
+# Dependency to provide a session
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
