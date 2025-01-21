@@ -6,7 +6,7 @@ import SearchResults from '@/app/components/SearchResults';
 import LoadingIndicator from '@/app/components/LoadingIndicator';
 import ErrorMessage from '@/app/components/ErrorMessage';
 
-export default function HomePage() {
+const HomePage: React.FC = () => {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -47,3 +47,5 @@ export default function HomePage() {
     </div>
   );
 };
+
+export default HomePage;
