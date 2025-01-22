@@ -8,6 +8,8 @@ services:
       - DATABASE_URL=postgres://user:password@db:5432/mydatabase
     depends_on:
       - db
+    volumes:
+      - ./backend:/app  # Mount local ./backend directory to /app in the container
 
   frontend:
     build:
