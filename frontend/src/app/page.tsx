@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { Container, MantineProvider, AppShell, Header, Footer, Text, Title } from '@mantine/core';
 import SearchInput from '@/app/components/SearchInput';
 import SearchResults from '@/app/components/SearchResults';
 import LoadingIndicator from '@/app/components/LoadingIndicator';
@@ -38,16 +39,33 @@ const HomePage: React.FC = () => {
     } finally {
       setLoading(false);
     }
-
   };
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      <SearchInput onSearch={handleSearch} />
-      {loading && <LoadingIndicator />}
-      {error && <ErrorMessage message={error} />}
-      <SearchResults results={results} />
-    </div>
+    <MantineProvider theme={{ colorScheme: 'dark' }} withGlobalStyles withNormalizeCSS>
+      <AppShell
+        padding="md"
+        header={
+          <Header height={60} p="xs">
+            <Title order={2} align="center" style={{ color: 'white' }}>
+              Find Your Perfect Car
+            </Title>
+          </Header>
+        }
+        footer={
+          <Footer height={40} p="xs" style={{ textAlign: 'center' }}>
+            <Text size="sm">© 2025 Car Search. All rights reserved.</Text>
+          </Footer>
+        }
+      >
+        <Container>
+          <SearchInput onSearch={handleSearch} />
+          {loading && <LoadingIndicator />}
+          {error && <ErrorMessage message={error} />}
+          <SearchResults results={results} />
+        </Container>
+      </AppShell>
+    </MantineProvider>
   );
 };
 
