@@ -1,6 +1,10 @@
-fastapi
-uvicorn
-sqlalchemy
-psycopg2-binary
-alembic
-pydantic
+fastapi==0.115.7
+uvicorn==0.34.0
+sqlalchemy==2.0.37
+psycopg2-binary==2.9.10
+alembic==1.14.1
+numpy==2.2.2
+pandas==2.2.3
+pydantic==2.10.5
+transformers==4.48.1
+torch==2.5.1
