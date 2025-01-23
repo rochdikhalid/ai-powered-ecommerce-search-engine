@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Card, Text } from '@mantine/core';
 
 interface Car {
   id: number;
@@ -14,20 +14,16 @@ interface SearchResultsProps {
 
 const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
   return (
-    <div className="p-4">
-      {results.length > 0 ? (
-        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {results.map((car) => (
-            <li key={car.id} className="border p-4 rounded-lg">
-              <h3 className="text-lg font-bold">{car.name}</h3>
-              <p>Price: ${car.price}</p>
-              <p>Features: {car.features}</p>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p className="text-center text-gray-500">No results found.</p>
-      )}
+    <div className="p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {results.map((car) => (
+        <Card key={car.id} shadow="sm" padding="lg" className="w-full">
+          <Text weight={500} size="lg">
+            {car.name}
+          </Text>
+          <Text>Price: ${car.price}</Text>
+          <Text>{car.features}</Text>
+        </Card>
+      ))}
     </div>
   );
 };

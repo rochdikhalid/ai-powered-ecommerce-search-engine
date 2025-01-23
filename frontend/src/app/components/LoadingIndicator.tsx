@@ -1,10 +1,10 @@
 import React from 'react';
-
+import { Loader } from '@mantine/core';
 
 const LoadingIndicator: React.FC = () => {
   return (
-    <div className="flex items-center justify-center p-4">
-      <div className="loader border-t-4 border-blue-500 rounded-full w-6 h-6 animate-spin"></div>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '16px' }}>
+      <Loader size="lg" color="blue" />
     </div>
   );
 };

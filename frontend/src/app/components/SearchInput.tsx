@@ -1,36 +1,30 @@
 import React, { useState } from 'react';
-
+import { TextInput, Button } from '@mantine/core';
 
 interface SearchInputProps {
-    onSearch: (query: string) => void;
+  onSearch: (query: string) => void;
 }
 
 const SearchInput: React.FC<SearchInputProps> = ({ onSearch }) => {
-    const [query, setQuery] = useState('');
-  
-    const handleSearch = () => {
-      if (query.trim()) {
-        onSearch(query);
-      }
-    };
-  
-    return (
-      <div className="flex items-center justify-center p-4">
-        <input
-          type="text"
-          className="border border-gray-300 rounded-lg p-2 w-2/3"
-          placeholder="Search for cars (e.g., manual cars under $30,000)"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-        />
-        <button
-          className="ml-4 bg-blue-500 text-white px-4 py-2 rounded-lg"
-          onClick={handleSearch}
-        >
-          Search
-        </button>
-      </div>
-    );
+  const [query, setQuery] = useState('');
+
+  const handleSearch = () => {
+    if (query.trim()) onSearch(query);
   };
-  
-  export default SearchInput;
+
+  return (
+    <div className="p-4">
+      <TextInput
+        placeholder="Search for cars (e.g., manual cars under $30,000)"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        className="w-full sm:w-2/3"
+      />
+      <Button onClick={handleSearch} className="mt-2">
+        Search
+      </Button>
+    </div>
+  );
+};
+
+export default SearchInput;

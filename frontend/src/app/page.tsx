@@ -17,25 +17,28 @@ const HomePage: React.FC = () => {
     setResults([]);
 
     try {
-      const response = await fetch('/api/search', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query }),
+      const response = await fetch(`http://localhost:8000/api/search/?query=${encodeURIComponent(query)}`, {
+        method: 'GET',
       });
 
       if (response.ok) {
         const data = await response.json();
-        setResults(data.results);
+        const mappedResults = data.map((car: any) => ({
+          id: car.id,
+          name: `${car.make} ${car.model}`,
+          price: car.price,
+          features: `Year: ${car.year}, Transmission: ${car.transmission}, Fuel: ${car.fuel_type}`,
+        }));
+        setResults(mappedResults);
       } else {
         throw new Error('Failed to fetch results.');
       }
     } catch (err) {
-      if (err instanceof Error) {
-        console.error(err.message);
-      } else {
-        console.error('An unknown error occurred:', err);
-      }
+      setError(err instanceof Error ? err.message : 'An unknown error occurred.');
+    } finally {
+      setLoading(false);
     }
+
   };
 
   return (
