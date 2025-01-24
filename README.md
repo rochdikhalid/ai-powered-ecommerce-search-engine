@@ -1,6 +1,6 @@
 # AI-Powered E-Commerce Search Engine for Cars
 
-This project is a full-stack AI-powered search engine for cars, built with FastAPI for the backend, Next.js for the frontend, and Dockerized for easy deployment. The backend leverages a pre-trained NLP model to provide semantic search capabilities.
+This project is a full-stack AI-powered search engine for cars, built with FastAPI for the backend, Next.js for the frontend, and Dockerized for easy deployment. The backend leverages a pre-trained **DistilBERT-base-uncased** model from Hugging Face for semantic search capabilities.
 
 ## Features
 
@@ -99,3 +99,12 @@ The database is a PostgreSQL instance running in a Docker container. Data is pop
 
 ```bash
 docker exec -it <backend-container-id> python /app/load_data.py
+```
+
+### Testing
+
+Unit tests for the backend are located in the tests directory. Run them using pytest:
+
+```bash
+docker exec -it <backend-container-id> pytest
+```
