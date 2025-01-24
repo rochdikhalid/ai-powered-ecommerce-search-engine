@@ -27,8 +27,8 @@ Follow these steps to set up and run the project locally:
 
 1. **Clone the Repository**
     ```bash
-    git clone https://github.com/your-repo/ai-car-search.git
-    cd ai-car-search
+    git clone git@github.com:rochdikhalid/ai-powered-ecommerce-search-engine.git
+    cd ai-powered-ecommerce-search-engine
     ```
 
 2. **Configure Environment Variables**
@@ -56,6 +56,21 @@ Follow these steps to set up and run the project locally:
 
 ### Backend Directory Structure
 
+```bash
+.
+├── backend/          # FastAPI backend
+│   ├── src/          # Backend source code
+│   ├── requirements.txt
+│   └── Dockerfile
+├── frontend/         # Next.js frontend
+│   ├── pages/        # Frontend pages
+│   ├── components/   # Reusable components
+│   ├── package.json
+│   └── Dockerfile
+├── docker-compose.yml
+└── README.md
+```
+
 ## Frontend
 
 ### Key Features
@@ -64,6 +79,15 @@ Follow these steps to set up and run the project locally:
 - **Search Interface**: Intuitive UI for entering search queries and viewing results.
 
 ### Frontend Directory Structure
+
+```bash
+frontend/
+├── pages/            # Next.js pages
+├── components/       # Reusable components
+├── public/           # Static assets
+├── package.json      # Node.js dependencies
+└── Dockerfile        # Frontend Dockerfile
+```
 
 ## Database
 
